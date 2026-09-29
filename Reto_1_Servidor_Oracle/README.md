@@ -114,7 +114,7 @@ Con la VM apagada correctamente se creó `S3_Oracle_Servidor_Red_OK`.
 
 ## 11. Repositorio
 
-[PEGAR AQUÍ EL ENLACE AL REPOSITORIO DE GITHUB]
+https://github.com/LostRandom/ASGBD-UDIT/tree/main/Reto_1_Servidor_Oracle
 
 ## 12. Importante
 
