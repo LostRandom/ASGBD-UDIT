@@ -8,10 +8,10 @@
 
 | Campo | Valor |
 |---|---|
-| **Alumno/a** | _Nombre y apellidos_ |
-| **Usuario de GitHub** | _@usuario_ |
-| **IP de la VM (Host-Only)** | `192.168.56.X` |
-| **Fecha** | _dd/mm/aaaa_ |
+| **Alumno/a** | _Adrián Miguel Ventura Muñoz_ |
+| **Usuario de GitHub** | LostRandom |
+| **IP de la VM (Host-Only)** | `192.168.56.101` |
+| **Fecha** | _06/10/2026_ |
 
 ---
 
