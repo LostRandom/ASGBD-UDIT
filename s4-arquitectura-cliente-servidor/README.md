@@ -196,7 +196,7 @@ Este laboratorio **no se evalúa**, pero el Reto 2 sí. Practica hoy el proceso 
 ---
 
 ## Estructura del repositorio
-
+https://github.com/LostRandom/ASGBD-UDIT/
 ```text
 Laboratorio_Base_Oracle/
 ├── README.md
