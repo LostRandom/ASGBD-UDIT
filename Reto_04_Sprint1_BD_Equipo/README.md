@@ -163,6 +163,8 @@ El script realiza tres tareas:
 2. Crea la tabla provisional `contenidos`.
 3. Inserta tres registros ficticios de ejemplo.
 
+![Ejecución de 01_estructura.sql con la conexión MySQL - admin_udit](capturas/01a_ejecucion_script_estructura.png)
+
 La tabla contiene:
 
 | Campo | Función |
@@ -200,6 +202,8 @@ ORDER BY id_contenido;
 📸 **Evidencia 1 (hoy):** guarda una captura donde se vea la consulta y el resultado de `SELECT`, con las tres filas y las columnas. También debe poder identificarse la conexión utilizada. Nombre recomendado:
 
 `capturas/01_estructura_y_datos.png`
+
+![Evidencia 1 · SELECT sobre proyecto_udit.contenidos con admin_udit](capturas/01_estructura_y_datos.png)
 
 **Punto de control B:** existe `proyecto_udit`, contiene `contenidos` y aparecen los tres registros.
 
@@ -274,6 +278,8 @@ SHOW GRANTS;
 
 Nombre recomendado: `capturas/02_conexion_admin_equipo.png`
 
+![Evidencia 2 · CURRENT_USER() y SHOW GRANTS desde MySQL - admin_equipo](capturas/02_conexion_admin_equipo.png)
+
 **Punto de control C:** `admin_equipo` conecta desde el PC físico y tiene permisos sobre `proyecto_udit`.
 
 ---
@@ -287,6 +293,12 @@ Esta sesión demuestra que `admin_equipo` administra su base de datos, pero no e
 Abre `db/03_pruebas_admin.sql`. Ejecuta cada sentencia individualmente (`Ctrl + Enter`) y cambia de conexión cuando lo indique el comentario.
 
 ### D.1 Con `MySQL - admin_equipo`
+
+Comprobación previa de la conexión activa y de sus permisos:
+
+![Bloque A · CURRENT_USER() con admin_equipo](capturas/03_pruebas_permisos_01_current_user.png)
+
+![Bloque A · SHOW GRANTS con admin_equipo](capturas/03_pruebas_permisos_02_show_grants.png)
 
 Estas operaciones deben funcionar:
 
@@ -303,6 +315,12 @@ DROP TABLE proyecto_udit.comprobacion_admin;
 
 La primera consulta lee los contenidos. Las otras dos crean y eliminan una tabla de comprobación dentro de `proyecto_udit`.
 
+![Bloque A · SELECT sobre contenidos con admin_equipo (permitido)](capturas/03_pruebas_permisos_03_select_contenidos.png)
+
+![Bloque A · CREATE TABLE comprobacion_admin (permitido)](capturas/03_pruebas_permisos_04_create_table.png)
+
+![Bloque A · DROP TABLE comprobacion_admin (permitido)](capturas/03_pruebas_permisos_05_drop_table.png)
+
 Esta consulta debe fallar:
 
 ```sql
@@ -310,6 +328,8 @@ SELECT COUNT(*) FROM mysql.user;
 ```
 
 **Esperado:** error `1142` de acceso denegado. Es correcto: `admin_equipo` no administra las cuentas ni tiene permisos de lectura sobre el esquema de sistema `mysql`.
+
+![Bloque A · SELECT COUNT(*) FROM mysql.user denegado con error 1142](capturas/03_pruebas_permisos_06_mysql_user_denegado.png)
 
 ### D.2 Con `MySQL - usuario_restringido`
 
@@ -323,6 +343,8 @@ SELECT * FROM proyecto_udit.contenidos;
 ```
 
 **Esperado:** la última consulta falla con error `1142`. No concedas permisos a esta cuenta en este reto.
+
+<!-- PENDIENTE: insertar aquí las capturas del Bloque B ejecutado con la conexión MySQL - usuario_restringido -->
 
 📸 **Evidencia 3 (próxima semana):** captura de las pruebas permitidas y denegadas. Debe verse qué conexión está activa.
 
